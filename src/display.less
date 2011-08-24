@@ -1,0 +1,37 @@
+// Display Module
+
+.block() { 
+	display:block; 
+	margin:0; 
+	padding:0; 
+}
+
+.block-center() { 
+	.block(); 
+	margin:0 auto; 
+}
+
+.block-inline(@align:top) {
+	display: -moz-inline-stack;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	vertical-align: @align;
+}
+
+.block-inline-float(@align:top, @float:left) {
+	.block-inline(@align);
+	float:@float;
+}
+
+// How To Clear Floats Without Structural Markup[http://www.positioniseverything.net/easyclearing.html]
+.clearfix() {
+  zoom: 1;
+	&:after {
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    content: ".";
+	}
+}

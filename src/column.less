@@ -1,0 +1,13 @@
+// Column Module
+
+.column(@column-count: 2, @column-gap: 20px) {
+	/* W3C */
+	column-count: @column-count;
+	column-gap: @column-gap;
+	/* Chrome and Safari*/
+	-webkit-column-count: @column-count;
+	-webkit-column-gap: @column-gap;
+	/* Firefox */
+	-moz-column-count: @column-count;
+	-moz-column-gap: @column-gap;
+}

@@ -1,0 +1,18 @@
+// CSS3 Transition Module
+
+// property: none|all|'property'
+// duration: time
+// timing-function: linear|ease|ease-in|ease-out|ease-in-out|cubic-bezier(n,n,n,n)
+// delay: time
+
+.transition(@property: all, @duration: 0s, @timing-function: ease, @delay: 0s){
+	/* Chrome and Safari */
+	-webkit-transition: @arguments;
+	/* Firefox */
+	-moz-transition: @arguments;
+	/* Opera */
+	-o-transition: @arguments;
+	/* W3C */
+	transition: @arguments;	
+
+}

@@ -1,0 +1,32 @@
+// Font Module
+
+.font-properties(@font-weight, @font-size, @line-height, @font-style){
+	font-weight: @font-weight;
+	font-size: @font-size;
+	line-height: @line-height;
+	font-style: @font-style;
+}
+
+.sans-serif(@font-weight: normal, @font-size: 14px, @line-height: 20px ,@font-style: normal) {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	.font-properties(@font-weight, @font-size, @line-height, @font-style);
+}
+
+.serif(@font-weight: normal, @font-size: 14px, @line-height: 20px, @font-style: normal) {
+	font-family: "Georgia", Times New Roman, Times, sans-serif;
+	.font-properties(@font-weight, @font-size, @line-height, @font-style);
+}
+
+.monospace(@font-weight: normal, @font-size: 12px, @line-height: 20px, @font-style: normal) {
+	font-family: "Monaco", Courier New, monospace;
+	.font-properties(@font-weight, @font-size, @line-height, @font-style);
+}
+
+// CSS3 @font-face
+
+.font-face(@font-family, @url){
+	@font-face{
+		font-family: @font-family;
+		src: url('@{url}');
+	}
+}

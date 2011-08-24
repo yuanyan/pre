@@ -1,0 +1,26 @@
+@import "../dist/pre";
+
+// Grid example
+@grid-column-count: 11;
+@grid-column-width: 40px;
+@grid-gap-width: 20px;
+
+div.grid {
+	.grid-container();
+	div.span1 { .grid-columns(1); }
+	div.span2 { .grid-columns(2); }
+	div.span3 { .grid-columns(3); }
+	div.span4 { .grid-columns(4); }
+	div.span5 { .grid-columns(5); }
+	&.show-grid {
+		background-color: @silver;
+		height: 200px;
+		margin-bottom: 20px;
+		div {
+			background-color: @grey;
+			height: 200px;
+			text-align: center;
+			.sans-serif(normal,12px,200px);
+		}
+	}
+}

@@ -1,0 +1,103 @@
+// Table Module
+
+@import "color";
+
+.table-outer-borders(@width: 2px, @color: @black) {
+	border: @width solid @color;
+	thead {
+		th {
+			border-bottom: @width solid @color; 
+		} 
+	}
+	tfoot {
+		th, td {
+			border-top: @width solid @color;
+		} 
+	}
+	th {
+		&:first-child {
+			border-right: @width solid @color; 
+		} 
+	} 
+}
+
+.table-inner-borders(@width: 2px, @color: @black) {
+	th, td {
+		border: {
+			right: @width solid @color;
+			bottom: @width solid @color;
+			left-width: 0px;
+			top-width: 0px; 
+		}
+		&:last-child, 
+		&.last {
+			border-right-width: 0px; 
+		} 
+	}
+
+	// IE8 ignores rules that are included on the same line as :last-child
+	// see http://www.richardscarrott.co.uk/posts/view/ie8-last-child-bug for details
+	tbody, tfoot {
+		tr:last-child {
+			th, td {
+				border-bottom-width: 0px; 
+			} 
+		}
+		tr.last {
+			th, td {
+				border-bottom-width: 0px; 
+			} 
+		} 
+	} 
+}
+
+
+
+.table-scaffolding() {
+	th {
+		text-align: center;
+		font-weight: bold; 
+	}
+	td,
+	th {
+		padding: 2px;
+		&.numeric {
+			text-align: right; 
+		} 
+	} 
+}
+
+
+.table-alternating-rows-and-columns(@even-row-color, @odd-row-color, @dark-intersection, @header-color: @white, @footer-color: @white) {
+	th {
+		background-color: @header-color;
+		&.even, &:nth-child(2n) {
+			background-color: @header-color - @dark-intersection; 
+		} 
+	}
+	tr.odd {
+		td {
+			background-color: @odd-row-color;
+			&.even, &:nth-child(2n) {
+				background-color: @odd-row-color - @dark-intersection; 
+			} 
+		} 
+	}
+	tr.even {
+		td {
+			background-color: @even-row-color;
+			&.even, &:nth-child(2n) {
+				background-color: @even-row-color - @dark-intersection; 
+			} 
+		} 
+	}
+	tfoot {
+		th, td {
+			background-color: @footer-color;
+			&.even, &:nth-child(2n) {
+				background-color: @footer-color - @dark-intersection; 
+			} 
+		} 
+	}
+}
+

@@ -1,0 +1,35 @@
+// Border Module
+
+// Border Radius
+.border-radius(@radius: 5px) {
+	/* Safari and Chrome */
+	-webkit-border-radius: @radius;
+	/* Opera */
+	-o-border-radius: @radius;
+	/* IE */
+	-ms-border-radius: @radius;
+	/* Firefox */
+	-moz-border-radius: @radius;
+	/* W3C */
+	border-radius: @radius;
+}
+
+/* border-image: source slice width outset repeat; */
+.border-image(@args){
+	/* Firefox */
+	-moz-border-image: @args;
+	/* Safari and Chrome */
+	-webkit-border-image: @args;
+	/* Opera */
+	-o-border-image: @args; 
+	/* W3C */
+	border-image: @args;
+}
+
+
+.border-translucent(@color: @white, @alpha: 1) {
+	border-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	background-clip: padding-box;
+}
+
+

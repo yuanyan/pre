@@ -1,0 +1,18 @@
+// Link Module
+
+// a link that only has an underline when you hover over it
+.link-hover() {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline; } 
+}
+
+
+// A link that looks and acts like the text it is contained within
+.link-unstyled() {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+  &:active, &:focus {
+    outline: none; } 
+}

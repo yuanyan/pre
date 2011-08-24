@@ -1,0 +1,90 @@
+/* --------------------------------------------------------------
+
+   Form Module
+   * Sets up some default styling for forms
+   * Gives you classes to enhance your forms
+
+   Usage:
+   * For text fields, use class .title or .text
+   * For inline forms, use .inline (even when using columns)
+
+-------------------------------------------------------------- */
+
+@import "color";
+
+/*
+  Attribute selectors are used to differentiate the different types
+  of input elements, but to support old browsers, you will have to
+  add classes for each one. ".title" simply creates a large text
+  field, this is purely for looks.
+ */
+
+.form() {
+  .form-layout;
+  .form-borders;
+  .form-sizes;
+}
+
+.form-layout() {
+  label              { font-weight: bold; }
+  fieldset           { padding: 1.4em; margin: 0 0 1.5em 0; }
+  legend             { font-weight: bold; font-size: 1.2em; }
+  input {
+    &.text,
+    &.title,
+    &[type=email],
+    &[type=text],
+    &[type=password]   { margin: 0.5em 0; background-color: @white; padding: 5px; }
+    &.title            { font-size: 1.5em; }
+  }
+  textarea           { margin: 0.5em 0; padding: 5px; }
+  select             { margin: 0.5em 0; }
+}
+
+.form-sizes(
+    @input-width: 300px,  
+    @textarea-width: 390px,  
+    @textarea-height: 250px
+) {
+  input {
+    &.text,
+    &.title,
+    &[type=email],
+    &[type=text],
+    &[type=password] { width: @input-width; }
+  }
+
+  textarea {
+      width: @textarea-width; height: @textarea-height;
+   }
+}
+
+.form-borders(
+  @unfocused-border-color: #bbbbbb,
+  @focus-border-color: #666666,
+  @fieldset-border-color: #cccccc
+) {
+  fieldset {
+    border: 1px solid @fieldset-border-color;
+  }
+  input.text, input.title, input[type=email], input[type=text], input[type=password],
+  textarea {
+    background-color: @white;
+    border: 1px solid @unfocused-border-color;
+    &:focus {
+      border-color: @focus-border-color;
+    }
+  }
+  select { background-color:#fff; border-width:1px; border-style:solid; }
+}
+
+/*
+  This is to be used on forms where a variety of elements are
+  placed side-by-side. Use the p tag to denote a line.
+ */
+.inline-form() {
+  line-height: 3;
+  p {
+    margin-bottom: 0;
+  }
+}

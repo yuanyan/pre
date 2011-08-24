@@ -1,0 +1,24 @@
+// Float Module
+
+// Implementation of float:left with fix for the
+// [double-margin bug in IE5/6](http://www.positioniseverything.net/explorer/doubled-margin.html)
+
+.float-left() {
+	.float(left); 
+}
+
+.float-right() {
+	.float(right); 
+}
+
+.float(@direction: left) {
+	display: inline;
+	float: @direction; 
+}
+
+// Resets floated elements back to their default of `float: none` and defaults
+// to `display: block` unless you pass `inline` as an argument
+.reset-float(@display: block) {
+	float: none;
+	display: @display; 
+}

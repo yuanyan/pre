@@ -1,0 +1,28 @@
+// Backgroud Module
+
+// backgroud-attachment: scroll|fixed|inherit
+// background-clip: padding-box|border-box|content-box;
+// background-origin: padding-box|border-box|content-box;
+// background-size: length|percentage|cover|contain;
+
+.background(@color: transparent, @image: none, @repeat: repeat, @attachment: scroll, @position: 0% 0%, @clip: padding-box, @origin: padding-box, @size: auto){
+	background-color: @color;
+	background-image: url('@{image}');
+	background-repeat: @repeat;
+	background-attachment: @attachment;
+	background-position: @position;
+	
+	background-clip: @clip;
+	/*Safari*/
+	-webkit-background-clip: @clip;
+	
+	background-origin: @origin;
+	
+	background-size: @size;
+	
+}
+
+
+.background-translucent(@color: @white, @alpha: 1) {
+	background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}

@@ -1,0 +1,10 @@
+// Opacity Module
+
+.opacity(@opacity: 1){
+	//@op: @opacity * 100;
+	//filter: alpha(opacity=@op);
+	
+	filter: e(%("alpha(opacity=%d)", @opacity*100));
+	opacity: @opacity;
+
+}

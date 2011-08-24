@@ -1,0 +1,28 @@
+// Grid Module
+
+@import "display";
+
+@grid-column-count:    16;
+@grid-column-width:   40px;
+@grid-gap-width:   20px;
+@grid-width:       (@grid-column-count * @grid-column-width) + (@grid-gap-width * (@grid-column-count - 1));
+
+.grid-container() {
+  width: @grid-width;
+  margin: 0 auto;
+  .clearfix();
+}
+
+.grid-columns(@column-span: 1) {
+  display: inline;
+  float: left;
+  width: (@grid-column-width * @column-span) + (@grid-gap-width * (@column-span - 1));
+  margin-left: @grid-gap-width;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.grid-offset(@column-offset: 1) {
+  margin-left: (@grid-column-width * @column-offset) + (@grid-gap-width * (@column-offset - 1)) !important;
+}

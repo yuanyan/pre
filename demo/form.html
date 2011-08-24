@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet/less" type="text/css" media="all" href="form.less"/>
+    <script type="text/javascript" src="less-1.1.4.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      less.env = "development";
+      less.watch();
+    </script>
+    <title>Pre.less Demo</title>
+</head>
+<body>
+   <div>
+
+        <form id="dummy" action="" method="post">
+
+            <p>
+              <label for="dummy0">Text input (title)</label><br>
+              <input type="text" class="title" name="dummy0" id="dummy0" value="Field with class .title">
+            </p>
+
+            <p>
+              <label for="dummy1">Another field</label><br>
+              <input type="text" class="text" id="dummy1" name="dummy1" value="Field with class .text">
+            </p>
+
+            <p>
+              <label for="dummy2">Textarea</label><br>
+              <textarea name="dummy2" id="dummy2" rows="5" cols="20"></textarea>
+            </p>
+
+            <p>
+              <label for="dummy_password">A password field</label><br>
+              <input type="password" class="text" id="dummy_password" name="dummy3" value="Password field with class .text">
+            </p>
+
+            <p>
+              <label for="dummy_url">A URL field</label><br>
+              <input type="url" class="text" id="dummy_url" name="dummy_url" value="http://example.com">
+            </p>
+
+            <p>
+              <label for="dummy_email">An email field</label><br>
+              <input type="email" class="text" id="dummy_email" name="dummy_email" value="email-with-class-text@example.com">
+            </p>
+
+            <p>
+            <label for="dummy3">Select field</label><br>
+            <select id="dummy3" name="dummy3">
+              <option value="1">Ottawa</option>
+              <option value="2">Calgary</option>
+              <option value="3">Moosejaw</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="dummy4">Select with groups</label><br>
+            <select id="dummy4" name="dummy4">
+              <option>Favorite pet</option>
+              <optgroup label="mammals">
+                <option>dog</option>
+                <option>cat</option>
+                <option>rabbit</option>
+                <option>horse</option>
+              </optgroup>
+              <optgroup label="reptiles">
+                <option>iguana</option>
+                <option>snake</option>
+              </optgroup>
+            </select>
+          </p>
+
+          <p>
+            <label>Radio buttons</label><br>
+            <input type="radio" name="example"> Radio one<br>
+            <input type="radio" name="example"> Radio two<br>
+            <input type="radio" name="example"> Radio three<br>
+          </p>
+
+          <p>
+             <label>Checkboxes</label><br>
+            <input type="checkbox"> Check one<br>
+            <input type="checkbox"> Check two<br>
+            <input type="checkbox"> Check three<br>
+          </p>
+
+            <p>
+              <input type="submit" value="Submit">
+              <input type="reset" value="Reset">
+            </p>
+
+        </form>
+
+      </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+// Text Module
+
+.text-shadow(@x-offset: 0px, @y-offset: 0px, @blur:1px , @color: #000){
+	text-shadow: @arguments;
+	filter: %("dropshadow(color=%s, offx=%s, offy=%s)", @color, @x-offset, @y-offset);
+}
+
+// text-overflow: clip|ellipsis|string; 
+.text-overflow(@overflow: clip) {
+	overflow: hidden;
+	text-overflow: @overflow;
+}
+
+.nowrap() {
+	white-space: nowrap; 
+}
+
+// Prevent long urls and text from breaking layouts
+// [originally from perishablepress.com](http://perishablepress.com/press/2010/06/01/wrapping-content/)
+.forcewrap() {
+	white-space: pre;           // CSS 2.0
+	white-space: pre-wrap;      // CSS 2.1
+	white-space: pre-line;      // CSS 3.0
+	white-space: -pre-wrap;     // Opera 4-6
+	white-space: -o-pre-wrap;   // Opera 7
+	white-space: -moz-pre-wrap; // Mozilla
+	word-wrap: break-word;      // IE 5+
+}
