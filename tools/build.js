@@ -35,3 +35,5 @@ if (output) {
 } else {
 	sys.print(outputContent);
 }
+
+console.log("build success!");

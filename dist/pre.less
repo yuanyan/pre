@@ -414,7 +414,7 @@
     text-decoration: none;
   }
 }// Table Module
-
+// Compass
 
 
 .table-outer-borders(@width: 2px, @color: @black) {
@@ -438,12 +438,11 @@
 
 .table-inner-borders(@width: 2px, @color: @black) {
 	th, td {
-		border: {
-			right: @width solid @color;
-			bottom: @width solid @color;
-			left-width: 0px;
-			top-width: 0px; 
-		}
+		border-right :@width solid @color;	
+		border-bottom: @width solid @color;
+		border-left-width: 0px;
+		border-top-width: 0px; 
+		
 		&:last-child, 
 		&.last {
 			border-right-width: 0px; 
@@ -628,11 +627,10 @@
 	.list-item-no-bullet;
 	white-space: nowrap;
 	.float-left;
-  
-	padding: {
-		left: @padding;
-		right: @padding;
-	}
+	
+	padding-left: @padding;
+	padding-right: @padding;
+	
 	
 	&:first-child, &.first { 
 		padding-left: 0; 
@@ -679,8 +677,9 @@
 	li {
 		.list-item-horizontal-right(@padding); 
 	} 
-}/* --------------------------------------------------------------
-
+}
+// Blueprint http://blueprintcss.org/
+/* --------------------------------------------------------------
    Form Module
    * Sets up some default styling for forms
    * Gives you classes to enhance your forms

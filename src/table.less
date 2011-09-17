@@ -1,5 +1,5 @@
 // Table Module
-
+// Compass
 @import "color";
 
 .table-outer-borders(@width: 2px, @color: @black) {
@@ -23,12 +23,11 @@
 
 .table-inner-borders(@width: 2px, @color: @black) {
 	th, td {
-		border: {
-			right: @width solid @color;
-			bottom: @width solid @color;
-			left-width: 0px;
-			top-width: 0px; 
-		}
+		border-right :@width solid @color;	
+		border-bottom: @width solid @color;
+		border-left-width: 0px;
+		border-top-width: 0px; 
+		
 		&:last-child, 
 		&.last {
 			border-right-width: 0px; 
