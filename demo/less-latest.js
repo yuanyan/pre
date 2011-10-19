@@ -1,5 +1,5 @@
 //
-// LESS - Leaner CSS v1.1.4
+// LESS - Leaner CSS v2.0.0
 // http://lesscss.org
 // 
 // Copyright (c) 2009-2011, Alexis Sellier
@@ -13,7 +13,6 @@ function require(arg) {
     return window.less[arg.split('/')[1]];
 };
 
-    
 
 // ecma-5.js
 //
@@ -612,7 +611,7 @@ less.Parser = function Parser(env) {
                 //
                 keyword: function () {
                     var k;
-                    if (k = $(/^[A-Za-z-]+/)) { return new(tree.Keyword)(k) }
+                    if (k = $(/^[_A-Za-z-][_A-Za-z0-9-]*/)) { return new(tree.Keyword)(k) }
                 },
 
                 //
@@ -1025,16 +1024,11 @@ less.Parser = function Parser(env) {
                 var selectors = [], s, rules, match;
                 save();
 
-                if (match = /^([.#:% \w-]+)[\s\n]*\{/.exec(chunks[j])) {
-                    i += match[0].length - 1;
-                    selectors = [new(tree.Selector)([new(tree.Element)(null, match[1])])];
-                } else {
-                    while (s = $(this.selector)) {
-                        selectors.push(s);
-                        $(this.comment);
-                        if (! $(',')) { break }
-                        $(this.comment);
-                    }
+                while (s = $(this.selector)) {
+                    selectors.push(s);
+                    $(this.comment);
+                    if (! $(',')) { break }
+                    $(this.comment);
                 }
 
                 if (selectors.length > 0 && (rules = $(this.block))) {
@@ -1102,7 +1096,7 @@ less.Parser = function Parser(env) {
 
                 if (value = $(this['import'])) {
                     return value;
-                } else if (name = $(/^@media|@page/) || $(/^@(?:-webkit-)?keyframes/)) {
+                } else if (name = $(/^@media|@page/) || $(/^@(?:-webkit-|-moz-)?keyframes/)) {
                     types = ($(/^[^{]+/) || '').trim();
                     if (rules = $(this.block)) {
                         return new(tree.Directive)(name + " " + types, rules);
@@ -1332,6 +1326,13 @@ tree.functions = {
         hsl.a = clamp(hsl.a);
         return hsla(hsl);
     },
+    fade: function (color, amount) {
+        var hsl = color.toHSL();
+
+        hsl.a = amount.value / 100;
+        hsl.a = clamp(hsl.a);
+        return hsla(hsl);
+    },
     spin: function (color, amount) {
         var hsl = color.toHSL();
         var hue = (hsl.h + amount.value) % 360;
@@ -1393,6 +1394,10 @@ tree.functions = {
                 message: "math functions take numbers as parameters"
             };
         }
+    },
+    argb: function (color) {
+        return new(tree.Anonymous)(color.toARGB());
+
     }
 };
 
@@ -1510,11 +1515,6 @@ tree.Color = function (rgb, a) {
         this.rgb = rgb.match(/.{2}/g).map(function (c) {
             return parseInt(c, 16);
         });
-    } else if (rgb.length == 8) {
-        this.alpha = parseInt(rgb.substring(0,2), 16) / 255.0;
-        this.rgb = rgb.substr(2).match(/.{2}/g).map(function (c) {
-            return parseInt(c, 16);
-        });
     } else {
         this.rgb = rgb.split('').map(function (c) {
             return parseInt(c + c, 16);
@@ -1586,6 +1586,14 @@ tree.Color.prototype = {
             h /= 6;
         }
         return { h: h * 360, s: s, l: l, a: a };
+    },
+    toARGB: function () {
+        var argb = [Math.round(this.alpha * 255)].concat(this.rgb);
+        return '#' + argb.map(function (i) {
+            i = Math.round(i);
+            i = (i > 255 ? 255 : (i < 0 ? 0 : i)).toString(16);
+            return i.length === 1 ? '0' + i : i;
+        }).join('');
     }
 };
 
@@ -1750,12 +1758,12 @@ tree.Import = function (path, imports) {
 
     // The '.less' extension is optional
     if (path instanceof tree.Quoted) {
-        this.path = /\.(le?|c)ss$/.test(path.value) ? path.value : path.value + '.less';
+        this.path = /\.(le?|c)ss(\?.*)?$/.test(path.value) ? path.value : path.value + '.less';
     } else {
         this.path = path.value.value || path.value;
     }
 
-    this.css = /css$/.test(this.path);
+    this.css = /css(\?.*)?$/.test(this.path);
 
     // Only pre-compile .less files
     if (! this.css) {
@@ -2164,7 +2172,7 @@ tree.Ruleset.prototype = {
             if (rule !== self) {
                 for (var j = 0; j < rule.selectors.length; j++) {
                     if (match = selector.match(rule.selectors[j])) {
-                        if (selector.elements.length > 1) {
+                        if (selector.elements.length > rule.selectors[j].elements.length) {
                             Array.prototype.push.apply(rules, rule.find(
                                 new(tree.Selector)(selector.elements.slice(1)), self));
                         } else {
@@ -2293,11 +2301,25 @@ tree.Selector = function (elements) {
     }
 };
 tree.Selector.prototype.match = function (other) {
-    if (this.elements[0].value === other.elements[0].value) {
-        return true;
-    } else {
-        return false;
+    var value = this.elements[0].value,
+        len   = this.elements.length,
+        olen  = other.elements.length;
+
+    if (len > olen) {
+        return value === other.elements[0].value;
     }
+
+    for (var i = 0; i < olen; i ++) {
+        if (value === other.elements[i].value) {
+            for (var j = 1; j < len; j ++) {
+                if (this.elements[j].value !== other.elements[i + j].value) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }
+    return false;
 };
 tree.Selector.prototype.toCSS = function (env) {
     if (this._css) { return this._css }
@@ -2501,8 +2523,14 @@ function loadStyles() {
     for (var i = 0; i < styles.length; i++) {
         if (styles[i].type.match(typePattern)) {
             new(less.Parser)().parse(styles[i].innerHTML || '', function (e, tree) {
-                styles[i].type      = 'text/css';
-                styles[i].innerHTML = tree.toCSS();
+                var css = tree.toCSS();
+                var style = styles[i];
+                try {
+                    style.innerHTML = css;
+                } catch (_) {
+                    style.styleSheets.cssText = css;
+                }
+                style.type = 'text/css';
             });
         }
     }
