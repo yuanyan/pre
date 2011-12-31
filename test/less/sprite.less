@@ -1,0 +1,30 @@
+@import "../src/sprite";
+
+@sprite-default-size: 32px;
+
+@sprite-default-margin: 0px;
+
+@sprite-image-default-width: @sprite-default-size;
+
+@sprite-image-default-height: @sprite-default-size;
+
+#sprite1 a{
+	.twitter{
+		.sprite-img("icons-32.png", 1); 
+	}
+	.facebook{
+		.sprite-img("icons-32.png", 2); 
+	}
+}
+
+
+
+#sprite2 a{
+	.sprite-background("icons-32.png")
+	.twitter{
+		.sprite-column(1);
+	}
+	.facebook{
+		.sprite-row(2);
+	} 
+}

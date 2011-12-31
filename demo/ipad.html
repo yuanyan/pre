@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet/less" type="text/css" media="all" href="ipad.less" />
+    <script src="less-latest.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script charset="utf-8">
+      less.env = "development";
+      less.watch();
+    </script>
+	<script>
+	$(document).ready(function() {
+		$(document).mousemove(rotateScene);
+	});
+
+	function rotateScene(e) {
+		var horizontal = e.pageX / $(document).width();
+		var vertical = e.pageY / $(document).height();
+		
+		$('.ipad').css({
+			'-webkit-transform': 'rotateX(' + (7 - (vertical * 14)) + 'deg) rotateY(' + (-10 + (horizontal * 20)) + 'deg)'
+		});
+		
+		$('.specular').css({
+			'background-position': (-200 + (horizontal * -500)) + 'px ' + (-vertical * 600) + 'px',
+			'opacity': 1 - (horizontal * .45) - (vertical * .45)
+		});
+		
+		$('.home-btn').css({
+			'background': '-webkit-linear-gradient(-' + (80 - horizontal * 20) + 'deg, transparent 50%, rgba(255, 255, 255, .05) 50.1%, rgba(255, 255, 255, ' + (.4 - (horizontal * .1) - (vertical * .1)) + '))'
+		});
+		
+		$('.ipad.white .home-btn').css({
+			'background': '-webkit-linear-gradient(-' + (80 - horizontal * 20) + 'deg, rgba(0, 0, 0, ' + (.05 + (horizontal * .05) + (vertical * .05)) + '), rgba(0, 0, 0, 0) 50%, transparent 50.1%)',
+			'-webkit-box-shadow': '0 0 1px rgba(0, 0, 0, .1)'
+		});
+		
+		$('.shadow').css({
+			'-webkit-transform': 'rotateX(' + (65 + (vertical * 20)) + 'deg) rotateY(' + (10 - (horizontal * 20)) + 'deg) skewX(-15deg)'
+		});
+	}
+	
+	</script>
+    <title>Pre.less Demo</title>
+  </head>
+  
+  <body>
+  
+	<div class="scene">
+		<div class="ipad">
+			<div class="camera"></div>
+			<div class="specular"></div>
+			<img src="ipad.jpg" class="home-screen" />
+			<button class="home-btn"></button>
+			</div>
+		<div class="floor">
+			<div class="shadow"></div>
+		</div>
+	</div>
+	
+  </body>
+</html>

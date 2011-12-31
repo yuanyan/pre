@@ -1,4 +1,5 @@
 // Gradient Module
+// https://developer.mozilla.org/en/CSS/Using_CSS_gradients
 
 .gradient-horizontal (@startColor: #000, @endColor: #fff) {
 	background-color: @endColor;
@@ -33,8 +34,9 @@
 	/* Safari 5.1+, Chrome 10+ */
     background-image: -webkit-linear-gradient(@startColor, @endColor);
 	/* Opera 11.10 */
-    background-image: -o-linear-gradient(@startColor, @endColor); 
+    background-image: -o-linear-gradient(@startColor, @endColor);
 	/* IE6 & IE7 */
+    // http://msdn.microsoft.com/en-us/library/ms532997(VS.85,loband).aspx
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", @startColor, @endColor));
 	/* IE8+ */
     -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", @startColor, @endColor); 
@@ -58,4 +60,28 @@
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
     background-image: -webkit-linear-gradient(@startColor, color-stop(@colorStop, @midColor), @endColor);
     background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+    background-image: linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
 }
+
+// radial-gradient( [<position> || <angle>,]? [<shape> || <size>,]? <stop>, <stop>[, <stop>]* )
+// shape: circle | ellipse
+// size:  closest-side | closest-corner | farthest-side | farthest-corner | contain | cover
+// color-stop: <color> [ <length> | <percentage> ]?
+// see: https://developer.mozilla.org/en/CSS/radial-gradient
+.radial-gradient(@args) {
+    background: e(%("-webkit-radial-gradient(%s)", @args));
+    background: e(%("-moz-radial-gradient(%s)", @args));
+    background: e(%("-ms-radial-gradient(%s)", @args));
+    background: e(%("-o-radial-gradient(%s)", @args));
+    background: e(%("radial-gradient(%s)", @args));
+}
+
+.linear-gradient(){
+
+}
+
+
+
+
+
+

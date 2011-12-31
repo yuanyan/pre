@@ -1,0 +1,26 @@
+@import "../src/grid";
+
+@grid-column-count:    8;
+@grid-column-width:   80px;
+@grid-gap-width:   20px;
+@grid-width:       (@grid-column-count * @grid-column-width) + (@grid-gap-width * (@grid-column-count - 1));
+
+#grid{
+	.grid-container();
+}
+
+#column1{
+	.grid-columns(1);
+}
+
+#column2{
+	.grid-columns(2);
+}
+
+#offset1{
+	.grid-offset(1);
+}
+
+#offset2{
+	.grid-offset(2);
+}
