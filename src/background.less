@@ -10,17 +10,24 @@
 	background-repeat: @repeat;
 	background-attachment: @attachment;
 	background-position: @position;
-	
-	background-clip: @clip;
-	/*Safari*/
-	-webkit-background-clip: @clip;
-	
+	.background-clip(@clip);
 	background-origin: @origin;
-	
-	background-size: @size;
-	
+	.background-size(@size);
 }
 
 .background-translucent(@color: @white, @alpha: 1) {
 	background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}
+
+// https://developer.mozilla.org/en/CSS/background-
+.background-size(@size){
+	-moz-background-size: @size;           /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: @size;           /* Opera 9.5 */
+    -webkit-background-size: @size;           /* Safari 3.0 */
+    background-size: @size;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+}
+
+.background-clip(@clip){
+	background-clip: @clip;
+	-webkit-background-clip: @clip; /*Safari*/
 }

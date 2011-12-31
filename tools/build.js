@@ -11,7 +11,7 @@ var args = process.argv.slice(1);
 var srcArray = fs.readdirSync("../src");
 
 var basicModules=['color', 'display', 'text', 'min', 'font', 'float', 'background'];
-var css3Modules=['opacity', 'border', 'box', 'gradient', 'column', 'transform', 'transition', 'animation', 'flexbox'];
+var css3Modules=['opacity', 'border', 'box', 'gradient', 'column', 'transform', 'transition', 'animation', 'flexbox', 'mask'];
 var componentModules=['button', 'table', 'link', 'list', 'form' ];
 var otherModules=['sprite' , 'grid', 'reset'];
 

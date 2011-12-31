@@ -132,76 +132,159 @@ A **enjoyable** css framework use less.
  * Animation
   
  ```
+ .animation(@name: none, @duration: 0s, @timing-function: ease, @delay: 0, @iteration-count: 1, @direction: normal);
+ .animation-play-state(@state: running);
  ```
  
  * Transform
   
  ```
+ // 2D Transform
+ .transform(rotateX(75deg) skewX(-15deg));
+ .transform-origin( @origin: 50% 50% 0 );
+ .transform-style(@style: flat);
+ 
+ // 3D Transform
+ .perspective( @depth: null );
+ .perspective-origin( @position: 50% 50% );
  ```
  
  * Transition
   
  ```
+ .transition(@property: all, @duration: 0s, @timing-function: ease, @delay: 0s);
  ```
  
  * Flexbox
   
  ```
+ .box-align(@alignment: stretch);
+ .box-direction(@direction: normal);
+ .box-flex(@flex: 0);
+ .box-flex-group(@group: 1);
+ .box-orient(@orientation: horizontal);
+ .box-ordinal-group(@group: 1);
+ .box-pack(@pack: start);
+ 
+ //.display-box; must be used along with other flexbox mixins
+ .display-box()
  ```
  
  * Column
   
  ```
+ .column(@column-count: 2, @column-gap: 20px);
  ```
  
  * Border
   
  ```
+ // border radius
+ .border-radius(@radius: 5px);
+ 
+ // border image
+ .border-image( url(border.png) 27 27 27 27 round round );
+ 
+ .border-translucent(@color: @white, @alpha: 1);
  ```
  
  * Box
   
  ```
+ .box-sizing(@model: content-box);
+ .box-shadow("3px 3px red, -1em 0 0.4em olive");
  ```
  
  * Gradient
   
  ```
+ // radial gradient
+ .radial-gradient("center, closest-side, #3a3a3a, #1a1a1a");
+ 
  // linear gradient
+ .linear-gradient("-30deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, 0) 50.1%) no-repeat");
+ 
+  // more linear gradient mixins
  .gradient-horizontal(@startColor: #000, @endColor: #fff);
  .gradient-vertical(@startColor: #000, @endColor: #fff);
  .gradient-directional(@startColor: #000, @endColor: #fff, @deg: 45deg);
  
- // radial gradient
- .gradient-radial()
- 
  ```
  
+  * Mask
+  
+ ```
+ // using a Gradient as a Mask
+ .mask-gradient( "linear-gradient(black, transparent)" );
+ 
+ // using an Image as a Mask
+ .mask-image( url(heartmask.png) );
+ ```
 
 ### Component Modules
  * Button
   
  ```
+ .button(@color: #f5f5f5, @text-color: #fff, @text-shadow: 0 1px 1px rgba(0,0,0,.75), @font-size: 13px, @padding: 9px 15px 10px, @border-radius: 6px);
+ 
+ .button(@white, @black);
  ```
  
  * Link
   
  ```
+ // a link that only has an underline when you hover over it
+ .link-hover;
+ // A link that looks and acts like the text it is contained within
+ .link-unstyled;
  ```
  
  * List
   
  ```
+ // makes a list inline
+ .list-inline;
+ 
+ // makes an inline list delimited with the passed string
+ .list-delimited(@separator: ", ");
+ 
+ // Turn off the bullet for an element of a list
+ .list-item-no-bullet;
+ 
+ // turns off the bullets for an entire list
+ .list-no-bullets;
+ 
+ .list-pretty-bullets(@bullet-icon, @width, @height, @line-height: 18px, @padding: 14px);
+ .list-container-horizontal;
+ .list-item-horizontal-left(@padding: 4px);
+ .list-item-horizontal-right(@padding: 4px);
+ .list-horizontal-left(@padding: 4px);
+ .list-horizontal-right(@padding: 4px);
  ```
  
  * Table
   
  ```
+ .table-outer-borders(@width: 2px, @color: @black);
+ .table-inner-borders(@width: 2px, @color: @black);
  ```
  
  * Form
   
  ```
+ .form;
+ 
+ .form-borders(
+	@unfocused-border-color: #bbbbbb,
+	@focus-border-color: #666666,
+	@fieldset-border-color: #cccccc
+ );
+ 
+ .form-sizes(
+    @input-width: 300px,  
+    @textarea-width: 390px,  
+    @textarea-height: 250px
+ );
  ```
  
 
@@ -216,11 +299,57 @@ A **enjoyable** css framework use less.
  * Sprite
   
  ```
+ @sprite-default-size: 32px;
+ @sprite-default-margin: 0px;
+ @sprite-image-base-path: ".";
+ 
+ a{
+ 	.twitter{
+ 		.sprite-img("icons-32.png", 1); 
+ 	}
+ 	.facebook{
+ 		.sprite-img("icons-32png", 2); 
+ 	}
+ }
+ 
+ a{
+ 	.sprite-background("icons-32.png")
+ 	.twitter{
+ 		.sprite-column(1);
+ 	}
+ 	.facebook{
+ 		.sprite-row(2);
+ 	} 
+ }
  ```
  
  * Grid
   
  ```
+// Grid example
+@grid-column-count: 11;
+@grid-column-width: 40px;
+@grid-gap-width: 20px;
+
+div.grid {
+	.grid-container();
+	div.span1 { .grid-columns(1); }
+	div.span2 { .grid-columns(2); }
+	div.span3 { .grid-columns(3); }
+	div.span4 { .grid-columns(4); }
+	div.span5 { .grid-columns(5); }
+	&.show-grid {
+		background-color: @silver;
+		height: 200px;
+		margin-bottom: 20px;
+		div {
+			background-color: @grey;
+			height: 200px;
+			text-align: center;
+			.sans-serif(normal,12px,200px);
+		}
+	}
+}
  ```
  
 

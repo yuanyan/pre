@@ -16,21 +16,24 @@ less.tree.functions._color = function (str) {
 
 sys.puts("\n" + stylize("LESS", 'underline') + "\n");
 
-fs.readdirSync('test/less').forEach(function (file) {
+fs.readdirSync('./less').forEach(function (file) {
     if (! /\.less/.test(file)) { return }
 
-    toCSS('test/less/' + file, function (err, less) {
+    toCSS('./less/' + file, function (err, less) {
         var name = path.basename(file, '.less');
-
-        fs.readFile(path.join('test/css', name) + '.css', 'utf-8', function (e, css) {
+		
+        fs.readFile(path.join('./css', name) + '.css', 'utf-8', function (e, css) {
             sys.print("- " + name + ": ")
-            if (less === css) { sys.print(stylize('OK', 'green')) }
-            else if (err) {
-                sys.print(stylize("ERROR: " + (err && err.message), 'red'));
-            } else {
+            
+            if (err) {
+                sys.print(stylize("ERROR: " + err.message, 'red'));
+            } else if (less === css) { 
+				sys.print(stylize('OK', 'green')); 
+			}else {
                 sys.print(stylize("FAIL", 'yellow'));
             }
             sys.puts("");
+			//sys.print(JSON.stringify(less));
         });
     });
 });

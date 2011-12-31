@@ -4,15 +4,14 @@
 // border-box:  content|border|padding {element width=content}
 
 .box-sizing(@model: content-box){
-	box-sizing: @model;
+	box-sizing: @model; /* IE9+ Opera10.5+*/
 	-moz-box-sizing: @model;
 	-webkit-box-sizing: @model;
 }
 
 
 .box-shadow(@args){
-	//@str: `'@{args}'.replace(/[\[\]]/g, '')`;
-	box-shadow: @args;
-	-moz-box-shadow: @args;
-	-webkit-border-shadow:  @args;
+	box-shadow: e(%("%s", @args)); /* IE9+ Opera10.5+*/
+	-moz-box-shadow: e(%("%s", @args)); 
+	-webkit-border-shadow:  e(%("%s", @args)); 
 }
