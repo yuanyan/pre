@@ -64,11 +64,11 @@
 }
 
 .gradient(@type, @args){
-    background: e(%("-webkit-%s-gradient(%s)", @type, @args));
-    background: e(%("-moz-%s-gradient(%s)", @type, @args));
-    background: e(%("-ms-%s-gradient(%s)", @type, @args));
-    background: e(%("-o-%s-gradient(%s)", @type, @args));
-    background: e(%("%s-gradient(%s)", @type, @args));
+    background-image: e(%("-webkit-%s-gradient(%s)", @type, @args));
+    background-image: e(%("-moz-%s-gradient(%s)", @type, @args));
+    background-image: e(%("-ms-%s-gradient(%s)", @type, @args));
+    background-image: e(%("-o-%s-gradient(%s)", @type, @args));
+    background-image: e(%("%s-gradient(%s)", @type, @args));
 }
 
 // radial-gradient( [<position> || <angle>,]? [<shape> || <size>,]? <stop>, <stop>[, <stop>]* )
@@ -77,11 +77,11 @@
 // color-stop: <color> [ <length> | <percentage> ]?
 // see: https://developer.mozilla.org/en/CSS/radial-gradient
 .radial-gradient(@args) {
-	.gradient(radial, @args)
+	.gradient(radial, @args);
 }
 
 .linear-gradient(@args){
-	.gradient(linear, @args)
+	.gradient(linear, @args);
 }
 
 

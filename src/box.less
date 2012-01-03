@@ -11,7 +11,7 @@
 
 
 .box-shadow(@args){
-	box-shadow: e(%("%s", @args)); /* IE9+ Opera10.5+*/
-	-moz-box-shadow: e(%("%s", @args)); 
-	-webkit-border-shadow:  e(%("%s", @args)); 
+	box-shadow: @args; /* IE9+ Opera10.5+*/
+	-moz-box-shadow: @args; 
+	-webkit-border-shadow:  @args; 
 }
