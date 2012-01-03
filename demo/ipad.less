@@ -6,10 +6,13 @@
 	background: #2a2a2a;
 	.radial-gradient("center, closest-side, #3a3a3a, #1a1a1a");
 	.perspective(600);
+    overflow: hidden;
 }
 
 .ipad {
 	.block-center();
+    position: relative;
+    top: 50px;
 	z-index: 1000;
 	width: 463px;
 	height: 590px;
@@ -26,10 +29,11 @@
 	width: 461px;
 	height: 588px;
 	.border-radius(18px);
-	.linear-gradient("-30deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, 0) 50.1%) no-repeat");
+	.linear-gradient("-30deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, 0) 50.1%");
 	background-position: -350px -300px;
+	background-repeat: no-repeat;
 	.background-size(1000px 1200px);
-	.mask("linear-gradient(top, #fff, transparent 50%)");
+	.mask-gradient("linear-gradient(top, #fff, transparent 50%)");
 }
 
 .home-screen {
@@ -77,14 +81,12 @@
 }
 
 .floor {
-	position: absolute;
-	top: 50%;
-	left: 35%;
+	position: relative;
 	z-index: 0;
 	width: 3000px;
 	height: 1000px;
-	margin-left: -1500px;
-	margin-top: -500px;
+	margin-left: -1000px;
+	margin-top: -680px;
 	.radial-gradient("center, closest-side, #3a3a3a, #1a1a1a");
 	.transform(translateY(340px) rotateX(100deg));
 	.transform-style(flat);

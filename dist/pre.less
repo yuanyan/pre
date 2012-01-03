@@ -162,27 +162,32 @@
 // background-clip: padding-box|border-box|content-box;
 // background-origin: padding-box|border-box|content-box;
 // background-size: length|percentage|cover|contain;
-
 .background(@color: transparent, @image: none, @repeat: repeat, @attachment: scroll, @position: 0% 0%, @clip: padding-box, @origin: padding-box, @size: auto){
 	background-color: @color;
 	background-image: url('@{image}');
 	background-repeat: @repeat;
 	background-attachment: @attachment;
 	background-position: @position;
-	
-	background-clip: @clip;
-	/*Safari*/
-	-webkit-background-clip: @clip;
-	
+	.background-clip(@clip);
 	background-origin: @origin;
-	
-	background-size: @size;
-	
+	.background-size(@size);
 }
-
 
 .background-translucent(@color: @white, @alpha: 1) {
 	background-color: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+}
+
+// https://developer.mozilla.org/en/CSS/background-
+.background-size(@size){
+	-moz-background-size: @size;           /* Gecko 1.9.2 (Firefox 3.6) */
+    -o-background-size: @size;           /* Opera 9.5 */
+    -webkit-background-size: @size;           /* Safari 3.0 */
+    background-size: @size;           /* Gecko 2.0 (Firefox 4.0) and other CSS3-compliant browsers */
+}
+
+.background-clip(@clip){
+	background-clip: @clip;
+	-webkit-background-clip: @clip; /*Safari*/
 }
 // Opacity Module
 
@@ -235,18 +240,18 @@
 // border-box:  content|border|padding {element width=content}
 
 .box-sizing(@model: content-box){
-	box-sizing: @model;
+	box-sizing: @model; /* IE9+ Opera10.5+*/
 	-moz-box-sizing: @model;
 	-webkit-box-sizing: @model;
 }
 
 
 .box-shadow(@args){
-	//@str: `'@{args}'.replace(/[\[\]]/g, '')`;
-	box-shadow: @args;
-	-moz-box-shadow: @args;
-	-webkit-border-shadow:  @args;
+	box-shadow: @args; /* IE9+ Opera10.5+*/
+	-moz-box-shadow: @args; 
+	-webkit-border-shadow:  @args; 
 }// Gradient Module
+// https://developer.mozilla.org/en/CSS/Using_CSS_gradients
 
 .gradient-horizontal (@startColor: #000, @endColor: #fff) {
 	background-color: @endColor;
@@ -281,8 +286,9 @@
 	/* Safari 5.1+, Chrome 10+ */
     background-image: -webkit-linear-gradient(@startColor, @endColor);
 	/* Opera 11.10 */
-    background-image: -o-linear-gradient(@startColor, @endColor); 
+    background-image: -o-linear-gradient(@startColor, @endColor);
 	/* IE6 & IE7 */
+    // http://msdn.microsoft.com/en-us/library/ms532997(VS.85,loband).aspx
     filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", @startColor, @endColor));
 	/* IE8+ */
     -ms-filter: %("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", @startColor, @endColor); 
@@ -306,7 +312,35 @@
     background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@startColor), color-stop(@colorStop, @midColor), to(@endColor));
     background-image: -webkit-linear-gradient(@startColor, color-stop(@colorStop, @midColor), @endColor);
     background-image: -moz-linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
+    background-image: linear-gradient(@startColor, color-stop(@midColor, @colorStop), @endColor);
 }
+
+.gradient(@type, @args){
+    background-image: e(%("-webkit-%s-gradient(%s)", @type, @args));
+    background-image: e(%("-moz-%s-gradient(%s)", @type, @args));
+    background-image: e(%("-ms-%s-gradient(%s)", @type, @args));
+    background-image: e(%("-o-%s-gradient(%s)", @type, @args));
+    background-image: e(%("%s-gradient(%s)", @type, @args));
+}
+
+// radial-gradient( [<position> || <angle>,]? [<shape> || <size>,]? <stop>, <stop>[, <stop>]* )
+// shape: circle | ellipse
+// size:  closest-side | closest-corner | farthest-side | farthest-corner | contain | cover
+// color-stop: <color> [ <length> | <percentage> ]?
+// see: https://developer.mozilla.org/en/CSS/radial-gradient
+.radial-gradient(@args) {
+	.gradient(radial, @args);
+}
+
+.linear-gradient(@args){
+	.gradient(linear, @args);
+}
+
+
+
+
+
+
 // Column Module
 
 .column(@column-count: 2, @column-gap: 20px) {
@@ -319,7 +353,7 @@
 	/* Firefox */
 	-moz-column-count: @column-count;
 	-moz-column-gap: @column-gap;
-}// CSS3 Transform Module// function: rotate|scale// args// origin: x-axis y-axis z-axis// style: flat|preserve-3d  [only Safari and Chrome support].transform(@function, @args, @origin: 50% 50% 0,  @style: flat){	@str: `'@{args}'.replace(/[\[\]]/g, '')`;	@transform: e(%("%s(%s)", @function, @str));		/* W3C */	transform: @transform; 	transform-origin: @origin;	transform-style: @style;		/* IE 9 */	-ms-transform: @transform; 	-ms-transform-origin: @origin;		/* Firefox */	-moz-transform: @transform; 	-moz-transform-origin: @origin;		/* Chrome and Safari */	-webkit-transform: @transform; 	-webkit-transform-origin: @origin;	-webkit-transform-style: @style;		/* Opera */	-o-transform: @transform; 	-o-transform-origin: @origin;}  // CSS3 Transition Module
+}// CSS3 Transform Module// function: rotate|scale.transform( @transform ){    -webkit-transform: @transform;    -moz-transform: @transform;    -ms-transform: @transform;  /* IE 9+ */    -o-transform: @transform;    transform: @transform;}// origin: x-axis y-axis z-axis.transform-origin( @origin: 50% 50% 0 ){    -webkit-transform-origin: @origin;    -moz-transform-origin: @origin;    -ms-transform-origin: @origin;    -o-transform-origin: @origin;    transform-origin: @origin;}// style: flat|preserve-3d  [only Safari and Chrome support].transform-style( @style: flat ){    -webkit-transform-style: @style;    transform-style: @style;}// https://developer.mozilla.org/en/CSS/perspective// depth: the smaller its depth value is, the deeper the perspective is..perspective( @depth: null ){    -moz-perspective: @depth;    -ms-perspective: @depth;    -webkit-perspective: @depth;    -o-perspective: @depth;    perspective: @depth;}// https://developer.mozilla.org/en/CSS/perspective-origin// position: left center right | length | %.perspective-origin( @position: 50% 50% ){    -moz-perspective-origin: @position;    -ms-perspective-origin: @position;    -webkit-perspective-origin: @position;    -o-perspective-origin: @position;    perspective-origin: @position;}// CSS3 Transition Module
 
 // property: none|all|'property'
 // duration: time
@@ -336,7 +370,7 @@
 	/* W3C */
 	transition: @arguments;	
 
-}//CSS3 Animation Module.animation(@name: none, @duration: 0s, @timing-function: ease, @delay: 0, @iteration-count: 1, @direction: normal){	animation: @arguments;	-moz-animation: @arguments;	-webkit-animation: @arguments;}// running|paused.animation-play-state(@state: running){	animation-play-state: @state;	-moz-animation-play-state: @state;	-webkit-animation-play-state: @state;}// Less do not support @keyframes syntax now////.keyframes(@name, @from, @to){//	@keyframes @name{//		from{@from}//		to{@to}//	}//	@-moz-keyframes @name{//		from{@from}//		to{@to}//	}//	@-webkit-keyframes @name{//		from{@from}//		to{@to}//	}//}// CSS3 FlexBox Module
+}//CSS3 Animation Module.animation(@name: none, @duration: 0s, @timing-function: ease, @delay: 0, @iteration-count: 1, @direction: normal){	animation: @arguments;	-moz-animation: @arguments;	-webkit-animation: @arguments;	-ms-animation: @arguments;	-o-animation: @arguments;}// running|paused.animation-play-state(@state: running){	animation-play-state: @state;	-moz-animation-play-state: @state;	-webkit-animation-play-state: @state;	-ms-animation-play-state: @state;	-o-animation-play-state: @state;}// animation name.animation-name(@name){    	-webkit-animation-name: @name;    	-moz-animation-name: @name;    	-ms-animation-name: @name;    	-o-animation-name: @name;    	animation-name: @name;}// CSS3 FlexBox Module
 
 //.display-box; must be used along with other flexbox mixins
 .display-box() { 
@@ -393,7 +427,7 @@
 	-webkit-box-pack: @pack;
 	box-pack: @pack;
 }
-// Button Module
+// CSS3 Mask Module.mask-gradient(@args){	@arg: `@{args}.trim()`;    -webkit-mask: e(%("-webkit-%s", @arg));    -moz-mask: e(%("-moz-%s", @arg));    mask: e(%("%s", @arg));}.mask-image(@args){    -webkit-mask: @args;    -moz-mask: @args;    mask: @args;}// Button Module
 
 
 
