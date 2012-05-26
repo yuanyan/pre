@@ -3,12 +3,10 @@ Pre.less
 
 A **enjoyable** css framework use less.
 
-![Pre](http://farm3.staticflickr.com/2254/2424145945_c8bcca5da6_z.jpg)
-
 ### Basic Modules
  * Color
   
- ```
+```css
  //17 standard color names
  @aqua:		#00FFFF;
  @black:	#000000;
@@ -32,11 +30,11 @@ A **enjoyable** css framework use less.
  @orange:	#FFA500;
  @pink:		#FFC0CB;
  @gold:		#FFD700;
- ```
+```
  
  * Display
  
- ```
+```css
  // dispay block
  .block();
  
@@ -49,11 +47,11 @@ A **enjoyable** css framework use less.
  
  // How To Clear Floats Without Structural Markup[http://www.positioniseverything.net/easyclearing.html]
  .clearfix()
- ``` 
+```
  
- * Float
+ * Float 
  
- ```
+```css
  // set float, left is the default direction  
  .float(@direction: left);
  
@@ -64,11 +62,11 @@ A **enjoyable** css framework use less.
  // Resets floated elements back to their default of `float: none` and defaults
  // to `display: block` unless you pass `inline` as an argument
  .reset-float(@display: block);
- ```
- 
+```
+
  * Font
   
- ```
+```css
  // sans-serif font family
  .sans-serif(@font-weight: normal, @font-size: 14px, @line-height: 20px ,@font-style: normal);
  
@@ -80,21 +78,21 @@ A **enjoyable** css framework use less.
  
  // css3 @font-face
  .font-face(@font-family, @url);
- ```
+```
  
  * Min
   
- ```
+```css
  // cross browser min-height mixin
  .min-height(@value);
  
  // cross browser min-width mixin
  .min-width(@value);
- ```
+```
  
  * Text
   
- ```
+```css
  // text shadow
  .text-shadow(@x-offset: 0px, @y-offset: 0px, @blur:1px , @color: #000);
  
@@ -107,11 +105,11 @@ A **enjoyable** css framework use less.
  // Prevent long urls and text from breaking layouts
  // [originally from perishablepress.com](http://perishablepress.com/press/2010/06/01/wrapping-content/)
  .forcewrap();
- ```
+```
  
  * Background
   
- ```
+```css
  // backgroud-attachment: scroll|fixed|inherit
  // background-clip: padding-box|border-box|content-box;
  // background-origin: padding-box|border-box|content-box;
@@ -120,27 +118,27 @@ A **enjoyable** css framework use less.
  
  // translucent background
  .background-translucent(@color: @white, @alpha: 1);
- ```
+```
  
 
 ### CSS3 Modules
  * Opacity
   
- ```
+```css
  // opacity style
  .opacity(@opacity: 1);
- ```
+```
  
  * Animation
   
- ```
+```css
  .animation(@name: none, @duration: 0s, @timing-function: ease, @delay: 0, @iteration-count: 1, @direction: normal);
  .animation-play-state(@state: running);
- ```
+```
  
  * Transform
   
- ```
+```css
  // 2D Transform
  .transform(rotateX(75deg) skewX(-15deg));
  .transform-origin( @origin: 50% 50% 0 );
@@ -149,17 +147,17 @@ A **enjoyable** css framework use less.
  // 3D Transform
  .perspective( @depth: null );
  .perspective-origin( @position: 50% 50% );
- ```
+```
  
  * Transition
   
- ```
+```css
  .transition(@property: all, @duration: 0s, @timing-function: ease, @delay: 0s);
- ```
+```
  
  * Flexbox
   
- ```
+```css
  .box-align(@alignment: stretch);
  .box-direction(@direction: normal);
  .box-flex(@flex: 0);
@@ -170,17 +168,17 @@ A **enjoyable** css framework use less.
  
  //.display-box; must be used along with other flexbox mixins
  .display-box()
- ```
+```
  
  * Column
   
- ```
+```css
  .column(@column-count: 2, @column-gap: 20px);
- ```
+```
  
  * Border
   
- ```
+```css
  // border radius
  .border-radius(@radius: 5px);
  
@@ -188,18 +186,18 @@ A **enjoyable** css framework use less.
  .border-image( url(border.png) 27 27 27 27 round round );
  
  .border-translucent(@color: @white, @alpha: 1);
- ```
+```
  
  * Box
   
- ```
+```css
  .box-sizing(@model: content-box);
  .box-shadow("3px 3px red, -1em 0 0.4em olive");
- ```
+```
  
  * Gradient
   
- ```
+```css
  // radial gradient
  .radial-gradient("center, closest-side, #3a3a3a, #1a1a1a");
  
@@ -211,39 +209,39 @@ A **enjoyable** css framework use less.
  .gradient-vertical(@startColor: #000, @endColor: #fff);
  .gradient-directional(@startColor: #000, @endColor: #fff, @deg: 45deg);
  
- ```
+```
  
   * Mask
   
- ```
+```css
  // using a Gradient as a Mask
  .mask-gradient( "linear-gradient(black, transparent)" );
  
  // using an Image as a Mask
  .mask-image( url(heartmask.png) );
- ```
+```
 
 ### Component Modules
  * Button
   
- ```
+```css
  .button(@color: #f5f5f5, @text-color: #fff, @text-shadow: 0 1px 1px rgba(0,0,0,.75), @font-size: 13px, @padding: 9px 15px 10px, @border-radius: 6px);
  
  .button(@white, @black);
- ```
+```
  
  * Link
   
- ```
+```css
  // a link that only has an underline when you hover over it
  .link-hover;
  // A link that looks and acts like the text it is contained within
  .link-unstyled;
- ```
+```
  
  * List
   
- ```
+```css
  // makes a list inline
  .list-inline;
  
@@ -262,18 +260,18 @@ A **enjoyable** css framework use less.
  .list-item-horizontal-right(@padding: 4px);
  .list-horizontal-left(@padding: 4px);
  .list-horizontal-right(@padding: 4px);
- ```
+```
  
  * Table
   
- ```
+```css
  .table-outer-borders(@width: 2px, @color: @black);
  .table-inner-borders(@width: 2px, @color: @black);
- ```
+```
  
  * Form
   
- ```
+```css
  .form;
  
  .form-borders(
@@ -287,20 +285,15 @@ A **enjoyable** css framework use less.
     @textarea-width: 390px,  
     @textarea-height: 250px
  );
- ```
+```
  
 
 ### Other Modules
- * Reset
  
- ```
- // import reset style, based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
- .reset();
- ``` 
+ * Sprite 
+ 
+```css
 
- * Sprite
-  
- ```
  @sprite-default-size: 32px;
  @sprite-default-margin: 0px;
  @sprite-image-base-path: ".";
@@ -323,11 +316,11 @@ A **enjoyable** css framework use less.
  		.sprite-row(2);
  	} 
  }
- ```
+```
  
- * Grid
+ * Grid 
   
- ```
+```css
 // Grid example
 @grid-column-count: 11;
 @grid-column-width: 40px;
@@ -352,9 +345,15 @@ div.grid {
 		}
 	}
 }
- ```
- 
+```
 
 
-> http://madscript.org
-> Copyright (c) 2011  Yuanyan < yuanyan.cao@gmail.com >
+ * Reset
+
+```css
+ // import reset style, based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
+ .reset();
+``` 
+
+> http://madscript.com
+> Copyright (c) 2011-2012  Yuanyan < yuanyan.cao@gmail.com >
