@@ -4,6 +4,7 @@ Pre.less
 A **enjoyable** css framework use less.
 
 ![Pre](http://farm3.staticflickr.com/2254/2424145945_c8bcca5da6_z.jpg)
+![My Github Analytics](http://img.tongji.linezing.com/2881628/tongji.gif)
 
 ### Basic Modules
  * Color
