@@ -1,0 +1,459 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Pre by yuanyan</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/yuanyan/pre">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/yuanyan/pre/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/yuanyan/pre/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Pre</h1>
+          <p>An enjoyable css framework use less</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/yuanyan">yuanyan</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>Pre.less</h1>
+
+<p>A <strong>enjoyable</strong> css framework use less.</p>
+
+<p><img src="http://farm3.staticflickr.com/2254/2424145945_c8bcca5da6_z.jpg" alt="Pre"><img src="http://img.tongji.linezing.com/2881628/tongji.gif" alt="My Github Analytics"></p>
+
+<h3>Basic Modules</h3>
+
+<ul>
+<li>Color</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span><span class="nt">17</span> <span class="nt">standard</span> <span class="nt">color</span> <span class="nt">names</span>
+ <span class="k">@aqua</span><span class="o">:</span>     <span class="nf">#00FFFF</span><span class="p">;</span>
+ <span class="k">@black</span><span class="o">:</span>    <span class="nf">#000000</span><span class="p">;</span>
+ <span class="k">@blue</span><span class="o">:</span>     <span class="nf">#0000FF</span><span class="p">;</span>
+ <span class="k">@fuchsia</span><span class="o">:</span>  <span class="nf">#FF00FF</span><span class="p">;</span>
+ <span class="k">@gray</span><span class="o">:</span>     <span class="nf">#808080</span><span class="p">;</span>
+ <span class="k">@grey</span><span class="o">:</span>     <span class="k">@gray</span><span class="p">;</span>
+ <span class="k">@green</span><span class="o">:</span>    <span class="nf">#008000</span><span class="p">;</span>
+ <span class="k">@lime</span><span class="o">:</span>     <span class="nf">#00FF00</span><span class="p">;</span>
+ <span class="k">@maroon</span><span class="o">:</span>   <span class="nf">#800000</span><span class="p">;</span>
+ <span class="k">@navy</span><span class="o">:</span>     <span class="nf">#000080</span><span class="p">;</span>
+ <span class="k">@olive</span><span class="o">:</span>    <span class="nf">#808000</span><span class="p">;</span>
+ <span class="k">@purple</span><span class="o">:</span>   <span class="nf">#800080</span><span class="p">;</span>
+ <span class="k">@red</span><span class="o">:</span>      <span class="nf">#FF0000</span><span class="p">;</span>
+ <span class="k">@silver</span><span class="o">:</span>   <span class="nf">#C0C0C0</span><span class="p">;</span>
+ <span class="k">@teal</span><span class="o">:</span>     <span class="nf">#008080</span><span class="p">;</span>
+ <span class="k">@white</span><span class="o">:</span>    <span class="nf">#FFFFFF</span><span class="p">;</span>
+ <span class="k">@yellow</span><span class="o">:</span>   <span class="nf">#FFFF00</span><span class="p">;</span>
+
+ <span class="o">//</span><span class="nt">other</span> <span class="nt">color</span> <span class="nt">names</span>
+ <span class="k">@orange</span><span class="o">:</span>   <span class="nf">#FFA500</span><span class="p">;</span>
+ <span class="k">@pink</span><span class="o">:</span>     <span class="nf">#FFC0CB</span><span class="p">;</span>
+ <span class="k">@gold</span><span class="o">:</span>     <span class="nf">#FFD700</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Display</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">dispay</span> <span class="nt">block</span>
+ <span class="nc">.block</span><span class="o">();</span>
+
+ <span class="o">//</span> <span class="nt">dispay</span> <span class="nt">center</span> <span class="nt">block</span>
+ <span class="nc">.block-center</span><span class="o">();</span>
+
+ <span class="o">//</span> <span class="nt">dispay</span> <span class="nt">inline</span> <span class="nt">block</span>
+ <span class="nc">.block-inline</span><span class="o">(</span><span class="k">@align</span><span class="nd">:top</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.block-inline-float</span><span class="o">(</span><span class="k">@align</span><span class="nd">:top</span><span class="o">,</span> <span class="k">@float</span><span class="nd">:left</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">How</span> <span class="nt">To</span> <span class="nt">Clear</span> <span class="nt">Floats</span> <span class="nt">Without</span> <span class="nt">Structural</span> <span class="nt">Markup</span><span class="o">[</span><span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="nc">.positioniseverything.net</span><span class="o">/</span><span class="nt">easyclearing</span><span class="nc">.html</span><span class="o">]</span>
+ <span class="nc">.clearfix</span><span class="o">()</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Float </li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">set</span> <span class="nt">float</span><span class="o">,</span> <span class="nt">left</span> <span class="nt">is</span> <span class="nt">the</span> <span class="nt">default</span> <span class="nt">direction</span>  
+ <span class="nc">.float</span><span class="o">(</span><span class="k">@direction</span><span class="o">:</span> <span class="nt">left</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">quick</span> <span class="nt">access</span> <span class="nt">method</span>
+ <span class="nc">.float-left</span><span class="o">();</span>
+ <span class="nc">.float-right</span><span class="o">();</span>
+
+ <span class="o">//</span> <span class="nt">Resets</span> <span class="nt">floated</span> <span class="nt">elements</span> <span class="nt">back</span> <span class="nt">to</span> <span class="nt">their</span> <span class="nt">default</span> <span class="nt">of</span> <span class="err">`</span><span class="nt">float</span><span class="o">:</span> <span class="nt">none</span><span class="err">`</span> <span class="nt">and</span> <span class="nt">defaults</span>
+ <span class="o">//</span> <span class="nt">to</span> <span class="err">`</span><span class="nt">display</span><span class="o">:</span> <span class="nt">block</span><span class="err">`</span> <span class="nt">unless</span> <span class="nt">you</span> <span class="nt">pass</span> <span class="err">`</span><span class="nt">inline</span><span class="err">`</span> <span class="nt">as</span> <span class="nt">an</span> <span class="nt">argument</span>
+ <span class="nc">.reset-float</span><span class="o">(</span><span class="k">@display</span><span class="o">:</span> <span class="nt">block</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Font</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">sans-serif</span> <span class="nt">font</span> <span class="nt">family</span>
+ <span class="nc">.sans-serif</span><span class="o">(</span><span class="k">@font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">,</span> <span class="k">@font-size</span><span class="o">:</span> <span class="nt">14px</span><span class="o">,</span> <span class="k">@line-height</span><span class="o">:</span> <span class="nt">20px</span> <span class="o">,</span><span class="k">@font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">serif</span> <span class="nt">font</span> <span class="nt">family</span>
+ <span class="nc">.serif</span><span class="o">(</span><span class="k">@font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">,</span> <span class="k">@font-size</span><span class="o">:</span> <span class="nt">14px</span><span class="o">,</span> <span class="k">@line-height</span><span class="o">:</span> <span class="nt">20px</span><span class="o">,</span> <span class="k">@font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">monospace</span> <span class="nt">font</span> <span class="nt">family</span>
+ <span class="nc">.monospace</span><span class="o">(</span><span class="k">@font-weight</span><span class="o">:</span> <span class="nt">normal</span><span class="o">,</span> <span class="k">@font-size</span><span class="o">:</span> <span class="nt">12px</span><span class="o">,</span> <span class="k">@line-height</span><span class="o">:</span> <span class="nt">20px</span><span class="o">,</span> <span class="k">@font-style</span><span class="o">:</span> <span class="nt">normal</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">css3</span> <span class="k">@font-face</span>
+ <span class="nc">.font-face</span><span class="o">(</span><span class="k">@font-family</span><span class="o">,</span> <span class="k">@url</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Min</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">cross</span> <span class="nt">browser</span> <span class="nt">min-height</span> <span class="nt">mixin</span>
+ <span class="nc">.min-height</span><span class="o">(</span><span class="k">@value</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">cross</span> <span class="nt">browser</span> <span class="nt">min-width</span> <span class="nt">mixin</span>
+ <span class="nc">.min-width</span><span class="o">(</span><span class="k">@value</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Text</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">text</span> <span class="nt">shadow</span>
+ <span class="nc">.text-shadow</span><span class="o">(</span><span class="k">@x-offset</span><span class="o">:</span> <span class="nt">0px</span><span class="o">,</span> <span class="k">@y-offset</span><span class="o">:</span> <span class="nt">0px</span><span class="o">,</span> <span class="k">@blur</span><span class="nd">:1px</span> <span class="o">,</span> <span class="k">@color</span><span class="o">:</span> <span class="nf">#000</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">white</span> <span class="nt">space</span> <span class="nt">no</span> <span class="nt">wrap</span>
+ <span class="nc">.nowrap</span><span class="o">()</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">text-overflow</span><span class="o">:</span> <span class="nt">clip</span><span class="o">|</span><span class="nt">ellipsis</span><span class="o">|</span><span class="nt">string</span><span class="p">;</span> 
+ <span class="nc">.text-overflow</span><span class="o">(</span><span class="k">@overflow</span><span class="o">:</span> <span class="nt">clip</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">Prevent</span> <span class="nt">long</span> <span class="nt">urls</span> <span class="nt">and</span> <span class="nt">text</span> <span class="nt">from</span> <span class="nt">breaking</span> <span class="nt">layouts</span>
+ <span class="o">//</span> <span class="o">[</span><span class="nt">originally</span> <span class="nt">from</span> <span class="nt">perishablepress</span><span class="nc">.com</span><span class="o">](</span><span class="nt">http</span><span class="o">://</span><span class="nt">perishablepress</span><span class="nc">.com</span><span class="o">/</span><span class="nt">press</span><span class="o">/</span><span class="nt">2010</span><span class="o">/</span><span class="nt">06</span><span class="o">/</span><span class="nt">01</span><span class="o">/</span><span class="nt">wrapping-content</span><span class="o">/)</span>
+ <span class="nc">.forcewrap</span><span class="o">()</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Background</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">backgroud-attachment</span><span class="o">:</span> <span class="nt">scroll</span><span class="o">|</span><span class="nt">fixed</span><span class="o">|</span><span class="nt">inherit</span>
+ <span class="o">//</span> <span class="nt">background-clip</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">|</span><span class="nt">border-box</span><span class="o">|</span><span class="nt">content-box</span><span class="o">;</span>
+ <span class="o">//</span> <span class="nt">background-origin</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">|</span><span class="nt">border-box</span><span class="o">|</span><span class="nt">content-box</span><span class="o">;</span>
+ <span class="o">//</span> <span class="nt">background-size</span><span class="o">:</span> <span class="nt">length</span><span class="o">|</span><span class="nt">percentage</span><span class="o">|</span><span class="nt">cover</span><span class="o">|</span><span class="nt">contain</span><span class="o">;</span>
+ <span class="nc">.background</span><span class="o">(</span><span class="k">@color</span><span class="o">:</span> <span class="nt">transparent</span><span class="o">,</span> <span class="k">@image</span><span class="o">:</span> <span class="nt">none</span><span class="o">,</span> <span class="k">@repeat</span><span class="o">:</span> <span class="nt">repeat</span><span class="o">,</span> <span class="k">@attachment</span><span class="o">:</span> <span class="nt">scroll</span><span class="o">,</span> <span class="k">@position</span><span class="o">:</span> <span class="nt">0</span><span class="o">%</span> <span class="nt">0</span><span class="o">%,</span> <span class="k">@clip</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">,</span> <span class="k">@origin</span><span class="o">:</span> <span class="nt">padding-box</span><span class="o">,</span> <span class="k">@size</span><span class="o">:</span> <span class="nt">auto</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">translucent</span> <span class="nt">background</span>
+ <span class="nc">.background-translucent</span><span class="o">(</span><span class="k">@color</span><span class="o">:</span> <span class="k">@white</span><span class="o">,</span> <span class="k">@alpha</span><span class="o">:</span> <span class="nt">1</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<h3>CSS3 Modules</h3>
+
+<ul>
+<li>Opacity</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">opacity</span> <span class="nt">style</span>
+ <span class="nc">.opacity</span><span class="o">(</span><span class="k">@opacity</span><span class="o">:</span> <span class="nt">1</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Animation</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.animation</span><span class="o">(</span><span class="k">@name</span><span class="o">:</span> <span class="nt">none</span><span class="o">,</span> <span class="k">@duration</span><span class="o">:</span> <span class="nt">0s</span><span class="o">,</span> <span class="k">@timing-function</span><span class="o">:</span> <span class="nt">ease</span><span class="o">,</span> <span class="k">@delay</span><span class="o">:</span> <span class="nt">0</span><span class="o">,</span> <span class="k">@iteration-count</span><span class="o">:</span> <span class="nt">1</span><span class="o">,</span> <span class="k">@direction</span><span class="o">:</span> <span class="nt">normal</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.animation-play-state</span><span class="o">(</span><span class="k">@state</span><span class="o">:</span> <span class="nt">running</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Transform</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">2D</span> <span class="nt">Transform</span>
+ <span class="nc">.transform</span><span class="o">(</span><span class="nt">rotateX</span><span class="o">(</span><span class="nt">75deg</span><span class="o">)</span> <span class="nt">skewX</span><span class="o">(</span><span class="nt">-15deg</span><span class="o">));</span>
+ <span class="nc">.transform-origin</span><span class="o">(</span> <span class="k">@origin</span><span class="o">:</span> <span class="nt">50</span><span class="o">%</span> <span class="nt">50</span><span class="o">%</span> <span class="nt">0</span> <span class="o">)</span><span class="p">;</span>
+ <span class="nc">.transform-style</span><span class="o">(</span><span class="k">@style</span><span class="o">:</span> <span class="nt">flat</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">3D</span> <span class="nt">Transform</span>
+ <span class="nc">.perspective</span><span class="o">(</span> <span class="k">@depth</span><span class="o">:</span> <span class="nt">null</span> <span class="o">)</span><span class="p">;</span>
+ <span class="nc">.perspective-origin</span><span class="o">(</span> <span class="k">@position</span><span class="o">:</span> <span class="nt">50</span><span class="o">%</span> <span class="nt">50</span><span class="o">%</span> <span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Transition</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.transition</span><span class="o">(</span><span class="k">@property</span><span class="o">:</span> <span class="nt">all</span><span class="o">,</span> <span class="k">@duration</span><span class="o">:</span> <span class="nt">0s</span><span class="o">,</span> <span class="k">@timing-function</span><span class="o">:</span> <span class="nt">ease</span><span class="o">,</span> <span class="k">@delay</span><span class="o">:</span> <span class="nt">0s</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Flexbox</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.box-align</span><span class="o">(</span><span class="k">@alignment</span><span class="o">:</span> <span class="nt">stretch</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.box-direction</span><span class="o">(</span><span class="k">@direction</span><span class="o">:</span> <span class="nt">normal</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.box-flex</span><span class="o">(</span><span class="k">@flex</span><span class="o">:</span> <span class="nt">0</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.box-flex-group</span><span class="o">(</span><span class="k">@group</span><span class="o">:</span> <span class="nt">1</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.box-orient</span><span class="o">(</span><span class="k">@orientation</span><span class="o">:</span> <span class="nt">horizontal</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.box-ordinal-group</span><span class="o">(</span><span class="k">@group</span><span class="o">:</span> <span class="nt">1</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.box-pack</span><span class="o">(</span><span class="k">@pack</span><span class="o">:</span> <span class="nt">start</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span><span class="nc">.display-box</span><span class="o">;</span> <span class="nt">must</span> <span class="nt">be</span> <span class="nt">used</span> <span class="nt">along</span> <span class="nt">with</span> <span class="nt">other</span> <span class="nt">flexbox</span> <span class="nt">mixins</span>
+ <span class="nc">.display-box</span><span class="o">()</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Column</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.column</span><span class="o">(</span><span class="k">@column-count</span><span class="o">:</span> <span class="nt">2</span><span class="o">,</span> <span class="k">@column-gap</span><span class="o">:</span> <span class="nt">20px</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Border</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">border</span> <span class="nt">radius</span>
+ <span class="nc">.border-radius</span><span class="o">(</span><span class="k">@radius</span><span class="o">:</span> <span class="nt">5px</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">border</span> <span class="nt">image</span>
+ <span class="nc">.border-image</span><span class="o">(</span> <span class="nt">url</span><span class="o">(</span><span class="nt">border</span><span class="nc">.png</span><span class="o">)</span> <span class="nt">27</span> <span class="nt">27</span> <span class="nt">27</span> <span class="nt">27</span> <span class="nt">round</span> <span class="nt">round</span> <span class="o">);</span>
+
+ <span class="nc">.border-translucent</span><span class="o">(</span><span class="k">@color</span><span class="o">:</span> <span class="k">@white</span><span class="o">,</span> <span class="k">@alpha</span><span class="o">:</span> <span class="nt">1</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Box</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.box-sizing</span><span class="o">(</span><span class="k">@model</span><span class="o">:</span> <span class="nt">content-box</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.box-shadow</span><span class="o">(</span><span class="s2">"3px 3px red, -1em 0 0.4em olive"</span><span class="o">);</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Gradient</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">radial</span> <span class="nt">gradient</span>
+ <span class="nc">.radial-gradient</span><span class="o">(</span><span class="s2">"center, closest-side, #3a3a3a, #1a1a1a"</span><span class="o">);</span>
+
+ <span class="o">//</span> <span class="nt">linear</span> <span class="nt">gradient</span>
+ <span class="nc">.linear-gradient</span><span class="o">(</span><span class="s2">"-30deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, 0) 50.1%) no-repeat"</span><span class="o">);</span>
+
+  <span class="o">//</span> <span class="nt">more</span> <span class="nt">linear</span> <span class="nt">gradient</span> <span class="nt">mixins</span>
+ <span class="nc">.gradient-horizontal</span><span class="o">(</span><span class="k">@startColor</span><span class="o">:</span> <span class="nf">#000</span><span class="o">,</span> <span class="k">@endColor</span><span class="o">:</span> <span class="nf">#fff</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.gradient-vertical</span><span class="o">(</span><span class="k">@startColor</span><span class="o">:</span> <span class="nf">#000</span><span class="o">,</span> <span class="k">@endColor</span><span class="o">:</span> <span class="nf">#fff</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.gradient-directional</span><span class="o">(</span><span class="k">@startColor</span><span class="o">:</span> <span class="nf">#000</span><span class="o">,</span> <span class="k">@endColor</span><span class="o">:</span> <span class="nf">#fff</span><span class="o">,</span> <span class="k">@deg</span><span class="o">:</span> <span class="nt">45deg</span><span class="o">)</span><span class="p">;</span>
+
+</pre>
+</div>
+
+
+<ul>
+<li>Mask</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">using</span> <span class="nt">a</span> <span class="nt">Gradient</span> <span class="nt">as</span> <span class="nt">a</span> <span class="nt">Mask</span>
+ <span class="nc">.mask-gradient</span><span class="o">(</span> <span class="s2">"linear-gradient(black, transparent)"</span> <span class="o">);</span>
+
+ <span class="o">//</span> <span class="nt">using</span> <span class="nt">an</span> <span class="nt">Image</span> <span class="nt">as</span> <span class="nt">a</span> <span class="nt">Mask</span>
+ <span class="nc">.mask-image</span><span class="o">(</span> <span class="nt">url</span><span class="o">(</span><span class="nt">heartmask</span><span class="nc">.png</span><span class="o">)</span> <span class="o">);</span>
+</pre>
+</div>
+
+
+<h3>Component Modules</h3>
+
+<ul>
+<li>Button</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.button</span><span class="o">(</span><span class="k">@color</span><span class="o">:</span> <span class="nf">#f5f5f5</span><span class="o">,</span> <span class="k">@text-color</span><span class="o">:</span> <span class="nf">#fff</span><span class="o">,</span> <span class="k">@text-shadow</span><span class="o">:</span> <span class="nt">0</span> <span class="nt">1px</span> <span class="nt">1px</span> <span class="nt">rgba</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nc">.75</span><span class="o">),</span> <span class="k">@font-size</span><span class="o">:</span> <span class="nt">13px</span><span class="o">,</span> <span class="k">@padding</span><span class="o">:</span> <span class="nt">9px</span> <span class="nt">15px</span> <span class="nt">10px</span><span class="o">,</span> <span class="k">@border-radius</span><span class="o">:</span> <span class="nt">6px</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="nc">.button</span><span class="o">(</span><span class="k">@white</span><span class="o">,</span> <span class="k">@black</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Link</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">a</span> <span class="nt">link</span> <span class="nt">that</span> <span class="nt">only</span> <span class="nt">has</span> <span class="nt">an</span> <span class="nt">underline</span> <span class="nt">when</span> <span class="nt">you</span> <span class="nt">hover</span> <span class="nt">over</span> <span class="nt">it</span>
+ <span class="nc">.link-hover</span><span class="o">;</span>
+ <span class="o">//</span> <span class="nt">A</span> <span class="nt">link</span> <span class="nt">that</span> <span class="nt">looks</span> <span class="nt">and</span> <span class="nt">acts</span> <span class="nt">like</span> <span class="nt">the</span> <span class="nt">text</span> <span class="nt">it</span> <span class="nt">is</span> <span class="nt">contained</span> <span class="nt">within</span>
+ <span class="nc">.link-unstyled</span><span class="o">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>List</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">makes</span> <span class="nt">a</span> <span class="nt">list</span> <span class="nt">inline</span>
+ <span class="nc">.list-inline</span><span class="o">;</span>
+
+ <span class="o">//</span> <span class="nt">makes</span> <span class="nt">an</span> <span class="nt">inline</span> <span class="nt">list</span> <span class="nt">delimited</span> <span class="nt">with</span> <span class="nt">the</span> <span class="nt">passed</span> <span class="nt">string</span>
+ <span class="nc">.list-delimited</span><span class="o">(</span><span class="k">@separator</span><span class="o">:</span> <span class="s2">", "</span><span class="o">)</span><span class="p">;</span>
+
+ <span class="o">//</span> <span class="nt">Turn</span> <span class="nt">off</span> <span class="nt">the</span> <span class="nt">bullet</span> <span class="nt">for</span> <span class="nt">an</span> <span class="nt">element</span> <span class="nt">of</span> <span class="nt">a</span> <span class="nt">list</span>
+ <span class="nc">.list-item-no-bullet</span><span class="o">;</span>
+
+ <span class="o">//</span> <span class="nt">turns</span> <span class="nt">off</span> <span class="nt">the</span> <span class="nt">bullets</span> <span class="nt">for</span> <span class="nt">an</span> <span class="nt">entire</span> <span class="nt">list</span>
+ <span class="nc">.list-no-bullets</span><span class="o">;</span>
+
+ <span class="nc">.list-pretty-bullets</span><span class="o">(</span><span class="k">@bullet-icon</span><span class="o">,</span> <span class="k">@width</span><span class="o">,</span> <span class="k">@height</span><span class="o">,</span> <span class="k">@line-height</span><span class="o">:</span> <span class="nt">18px</span><span class="o">,</span> <span class="k">@padding</span><span class="o">:</span> <span class="nt">14px</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.list-container-horizontal</span><span class="p">;</span>
+ <span class="nc">.list-item-horizontal-left</span><span class="o">(</span><span class="k">@padding</span><span class="o">:</span> <span class="nt">4px</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.list-item-horizontal-right</span><span class="o">(</span><span class="k">@padding</span><span class="o">:</span> <span class="nt">4px</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.list-horizontal-left</span><span class="o">(</span><span class="k">@padding</span><span class="o">:</span> <span class="nt">4px</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.list-horizontal-right</span><span class="o">(</span><span class="k">@padding</span><span class="o">:</span> <span class="nt">4px</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Table</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.table-outer-borders</span><span class="o">(</span><span class="k">@width</span><span class="o">:</span> <span class="nt">2px</span><span class="o">,</span> <span class="k">@color</span><span class="o">:</span> <span class="k">@black</span><span class="o">)</span><span class="p">;</span>
+ <span class="nc">.table-inner-borders</span><span class="o">(</span><span class="k">@width</span><span class="o">:</span> <span class="nt">2px</span><span class="o">,</span> <span class="k">@color</span><span class="o">:</span> <span class="k">@black</span><span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Form</li>
+</ul><div class="highlight">
+<pre> <span class="nc">.form</span><span class="o">;</span>
+
+ <span class="nc">.form-borders</span><span class="o">(</span>
+    <span class="k">@unfocused-border-color</span><span class="o">:</span> <span class="nf">#bbbbbb</span><span class="o">,</span>
+    <span class="k">@focus-border-color</span><span class="o">:</span> <span class="nf">#666666</span><span class="o">,</span>
+    <span class="k">@fieldset-border-color</span><span class="o">:</span> <span class="nf">#cccccc</span>
+ <span class="o">)</span><span class="p">;</span>
+
+ <span class="nc">.form-sizes</span><span class="o">(</span>
+    <span class="k">@input-width</span><span class="o">:</span> <span class="nt">300px</span><span class="o">,</span>  
+    <span class="k">@textarea-width</span><span class="o">:</span> <span class="nt">390px</span><span class="o">,</span>  
+    <span class="k">@textarea-height</span><span class="o">:</span> <span class="nt">250px</span>
+ <span class="o">)</span><span class="p">;</span>
+</pre>
+</div>
+
+
+<h3>Other Modules</h3>
+
+<ul>
+<li>Sprite </li>
+</ul><div class="highlight">
+<pre>
+ <span class="k">@sprite-default-size</span><span class="o">:</span> <span class="nt">32px</span><span class="p">;</span>
+ <span class="k">@sprite-default-margin</span><span class="o">:</span> <span class="nt">0px</span><span class="p">;</span>
+ <span class="k">@sprite-image-base-path</span><span class="o">:</span> <span class="s2">"."</span><span class="p">;</span>
+
+ <span class="nt">a</span><span class="p">{</span>
+    <span class="o">.</span><span class="n">twitter</span><span class="err">{</span>
+        <span class="o">.</span><span class="n">sprite</span><span class="o">-</span><span class="n">img</span><span class="p">(</span><span class="s2">"icons-32.png"</span><span class="o">,</span> <span class="m">1</span><span class="p">);</span> 
+    <span class="p">}</span>
+    <span class="nc">.facebook</span><span class="p">{</span>
+        <span class="o">.</span><span class="n">sprite</span><span class="o">-</span><span class="n">img</span><span class="p">(</span><span class="s2">"icons-32png"</span><span class="o">,</span> <span class="m">2</span><span class="p">);</span> 
+    <span class="p">}</span>
+ <span class="err">}</span>
+
+ <span class="nt">a</span><span class="p">{</span>
+    <span class="o">.</span><span class="n">sprite</span><span class="o">-</span><span class="k">background</span><span class="p">(</span><span class="s2">"icons-32.png"</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">twitter</span><span class="err">{</span>
+        <span class="o">.</span><span class="n">sprite</span><span class="o">-</span><span class="n">column</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nc">.facebook</span><span class="p">{</span>
+        <span class="o">.</span><span class="n">sprite</span><span class="o">-</span><span class="n">row</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+    <span class="p">}</span> 
+ <span class="err">}</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Grid </li>
+</ul><div class="highlight">
+<pre><span class="o">//</span> <span class="nt">Grid</span> <span class="nt">example</span>
+<span class="k">@grid-column-count</span><span class="o">:</span> <span class="nt">11</span><span class="p">;</span>
+<span class="k">@grid-column-width</span><span class="o">:</span> <span class="nt">40px</span><span class="p">;</span>
+<span class="k">@grid-gap-width</span><span class="o">:</span> <span class="nt">20px</span><span class="p">;</span>
+
+<span class="nt">div</span><span class="nc">.grid</span> <span class="p">{</span>
+    <span class="o">.</span><span class="n">grid</span><span class="o">-</span><span class="n">container</span><span class="p">();</span>
+    <span class="n">div</span><span class="o">.</span><span class="n">span1</span> <span class="err">{</span> <span class="o">.</span><span class="n">grid</span><span class="o">-</span><span class="n">columns</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="p">}</span>
+    <span class="nt">div</span><span class="nc">.span2</span> <span class="p">{</span> <span class="o">.</span><span class="n">grid</span><span class="o">-</span><span class="n">columns</span><span class="p">(</span><span class="m">2</span><span class="p">);</span> <span class="p">}</span>
+    <span class="nt">div</span><span class="nc">.span3</span> <span class="p">{</span> <span class="o">.</span><span class="n">grid</span><span class="o">-</span><span class="n">columns</span><span class="p">(</span><span class="m">3</span><span class="p">);</span> <span class="p">}</span>
+    <span class="nt">div</span><span class="nc">.span4</span> <span class="p">{</span> <span class="o">.</span><span class="n">grid</span><span class="o">-</span><span class="n">columns</span><span class="p">(</span><span class="m">4</span><span class="p">);</span> <span class="p">}</span>
+    <span class="nt">div</span><span class="nc">.span5</span> <span class="p">{</span> <span class="o">.</span><span class="n">grid</span><span class="o">-</span><span class="n">columns</span><span class="p">(</span><span class="m">5</span><span class="p">);</span> <span class="p">}</span>
+    <span class="o">&amp;</span><span class="nc">.show-grid</span> <span class="p">{</span>
+        <span class="k">background-color</span><span class="o">:</span> <span class="o">@</span><span class="nb">silver</span><span class="p">;</span>
+        <span class="k">height</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+        <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span>
+        <span class="n">div</span> <span class="err">{</span>
+            <span class="k">background-color</span><span class="o">:</span> <span class="o">@</span><span class="n">grey</span><span class="p">;</span>
+            <span class="k">height</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
+            <span class="k">text-align</span><span class="o">:</span> <span class="k">center</span><span class="p">;</span>
+            <span class="o">.</span><span class="k">sans-serif</span><span class="p">(</span><span class="k">normal</span><span class="o">,</span><span class="m">12px</span><span class="o">,</span><span class="m">200px</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</pre>
+</div>
+
+
+<ul>
+<li>Reset</li>
+</ul><div class="highlight">
+<pre> <span class="o">//</span> <span class="nt">import</span> <span class="nt">reset</span> <span class="nt">style</span><span class="o">,</span> <span class="nt">based</span> <span class="nt">on</span> <span class="o">[</span><span class="nt">Eric</span> <span class="nt">Meyer</span><span class="err">'</span><span class="nt">s</span> <span class="nt">reset</span> <span class="nt">2</span><span class="nc">.0</span><span class="o">](</span><span class="nt">http</span><span class="o">://</span><span class="nt">meyerweb</span><span class="nc">.com</span><span class="o">/</span><span class="nt">eric</span><span class="o">/</span><span class="nt">tools</span><span class="o">/</span><span class="nt">css</span><span class="o">/</span><span class="nt">reset</span><span class="o">/</span><span class="nt">index</span><span class="nc">.html</span><span class="o">)</span>
+ <span class="nc">.reset</span><span class="o">();</span>
+</pre>
+</div>
+
+
+<blockquote>
+<p><a href="http://madscript.com">http://madscript.com</a>
+Copyright (c) 2011-2012  Yuanyan &lt; <a href="mailto:yuanyan.cao@gmail.com">yuanyan.cao@gmail.com</a> &gt;</p>
+</blockquote>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
