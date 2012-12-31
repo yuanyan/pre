@@ -333,7 +333,8 @@ div.grid {
 ### Shim Modules
 
  * Reset
-Based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
+ 
+   Based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
 ```css
  // import reset style
  .reset();
@@ -341,7 +342,7 @@ Based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index
  
  * Normalize
  
-[normalize.css](http://necolas.github.com/normalize.css/) A modern, HTML5-ready alternative to CSS resets 
+   [normalize.css](http://necolas.github.com/normalize.css/) A modern, HTML5-ready alternative to CSS resets 
 ```css
  // makes browsers render all elements more consistently and in line with modern standards
  .normalize();
