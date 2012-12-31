@@ -299,7 +299,7 @@ A **enjoyable** css framework use less.
 ```
  
 
-### Other Modules
+### Images Modules
  
  * Sprite 
  
@@ -328,7 +328,9 @@ A **enjoyable** css framework use less.
  	} 
  }
 ```
- 
+
+### Layout Modules
+
  * Grid 
   
 ```css
@@ -358,6 +360,7 @@ div.grid {
 }
 ```
 
+### Shim Modules
 
  * Reset
 
@@ -365,6 +368,13 @@ div.grid {
  // import reset style, based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
  .reset();
 ``` 
+ 
+ * Normalize
+ 
+```css
+ // [normalize.css](http://necolas.github.com/normalize.css/) A modern, HTML5-ready alternative to CSS resets 
+ .normalize();
+```  
 
 > http://madscript.com
 > Copyright (c) 2011-2012  Yuanyan < yuanyan.cao@gmail.com >
