@@ -10,9 +10,9 @@ A **enjoyable** css framework use less.
  1. [Basic Modules](#basic-modules)
  1. [CSS3 Modules](#css3-modules)
  1. [Component Modules](#component-modules)
- 1. [Other Modules](#other-modules)
-
-
+ 1. [Layout Modules](#layout-modules)
+ 1. [Shim Modules](#shim-modules)
+ 1. [Util Modules](#util-modules)
 
 ### Basic Modules
  * Color
@@ -299,36 +299,6 @@ A **enjoyable** css framework use less.
 ```
  
 
-### Images Modules
- 
- * Sprite 
- 
-```css
-
- @sprite-default-size: 32px;
- @sprite-default-margin: 0px;
- @sprite-image-base-path: ".";
- 
- a{
- 	.twitter{
- 		.sprite-img("icons-32.png", 1); 
- 	}
- 	.facebook{
- 		.sprite-img("icons-32png", 2); 
- 	}
- }
- 
- a{
- 	.sprite-background("icons-32.png")
- 	.twitter{
- 		.sprite-column(1);
- 	}
- 	.facebook{
- 		.sprite-row(2);
- 	} 
- }
-```
-
 ### Layout Modules
 
  * Grid 
@@ -363,18 +333,50 @@ div.grid {
 ### Shim Modules
 
  * Reset
-
+Based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
 ```css
- // import reset style, based on [Eric Meyer's reset 2.0](http://meyerweb.com/eric/tools/css/reset/index.html)
+ // import reset style
  .reset();
 ``` 
  
  * Normalize
  
+[normalize.css](http://necolas.github.com/normalize.css/) A modern, HTML5-ready alternative to CSS resets 
 ```css
- // [normalize.css](http://necolas.github.com/normalize.css/) A modern, HTML5-ready alternative to CSS resets 
+ // makes browsers render all elements more consistently and in line with modern standards
  .normalize();
 ```  
+
+
+### Util Modules
+ 
+ * Sprite 
+ 
+```css
+
+ @sprite-default-size: 32px;
+ @sprite-default-margin: 0px;
+ @sprite-image-base-path: ".";
+ 
+ a{
+ 	.twitter{
+ 		.sprite-img("icons-32.png", 1); 
+ 	}
+ 	.facebook{
+ 		.sprite-img("icons-32png", 2); 
+ 	}
+ }
+ 
+ a{
+ 	.sprite-background("icons-32.png")
+ 	.twitter{
+ 		.sprite-column(1);
+ 	}
+ 	.facebook{
+ 		.sprite-row(2);
+ 	} 
+ }
+```
 
 > http://madscript.com
 > Copyright (c) 2011-2012  Yuanyan < yuanyan.cao@gmail.com >
